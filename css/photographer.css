@@ -23,7 +23,7 @@
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: #080201;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -74,3 +74,21 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.photograph-header {
+    display: flex;
+    justify-content: space-between;
+} 
+
+.photograph-header img{
+    object-fit: cover;
+    border-radius: 300px;
+    width: 200px;
+    height: 200px;
+} 
+
+.photograph-header h2 p{
+    flex-direction: column;
+    
+   
+} 

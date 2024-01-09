@@ -23,11 +23,7 @@
     article.appendChild(prix);
 
     article.addEventListener("click", () => {
-      window.location = `../photographer.html`;
-      const truc = new URLSearchParams(data);
-      console.log(truc);
-      
-      
+      window.location = `../photographer.html?id=${id}`;
     });
     return article;
   }
