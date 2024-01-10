@@ -76,8 +76,8 @@ form input {
 }
 
 .photograph-header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 } 
 
 .photograph-header img{
@@ -85,10 +85,39 @@ form input {
     border-radius: 300px;
     width: 200px;
     height: 200px;
+    position: relative;
+    left: 80%; 
+    top: -60%; 
+  
+   
+   
+    
 } 
 
-.photograph-header h2 p{
-    flex-direction: column;
-    
-   
+.photograph-header h2 {
+    color: #D3573C;
+    font-size: 64px;
+    margin: 0;
+
 } 
+.photograph-header p {
+color: #901C1C;
+margin: 5px;
+font-family: DM Sans;
+font-size: 24px;
+
+}
+
+.contact_button{
+  position: relative;
+  left: 40%; 
+    top: 30%; 
+
+}
+
+#tagline{
+    color: #525252;
+    font-size: 18px;
+    font-weight: 400;
+    
+}

@@ -20,15 +20,20 @@ function displayPhotographerDetails(photographer){
 
       const taglineElement = document.createElement("p");
       taglineElement.textContent = photographer.tagline;
+      taglineElement.id = "tagline";
       detailSection.appendChild(taglineElement);
 
       const picture = "assets/photographers/" + photographer.portrait;
-      console.log(picture)
       const imageElement = document.createElement("img");
       imageElement.src = picture;
       detailSection.appendChild(imageElement);
 
+      const photographie = "assets/Photographie/" + photographer.image;
+      const photos = document.createElement("img");
+      photos.src = photographie;
+      detailSection.appendChild(photos);
 
+    
 }
 
 function init() {
