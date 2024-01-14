@@ -1,48 +1,71 @@
 //Mettre le code JavaScript lié à la page photographer.html
-async function getPhotographerData(photographerId){
+async function getPhotographerData(Idphotographer) {
+  let reponse = await fetch("../../data/photographers.json");
+  let data = await reponse.json();
 
-      let reponse = await fetch("../../data/photographers.json");
-      let data = await reponse.json();
+  const photographer = data.photographers.find((p) => p.id === Idphotographer);
 
-return  data.photographers.find(p=>p.id === photographerId);
-  
+  return photographer;
 }
-function displayPhotographerDetails(photographer){
-      const detailSection = document.querySelector(".photograph-header");
+async function displayPhotographerDetails(photographer) {
+  const detailSection = document.querySelector(".photograph-header");
 
-      const nameElement = document.createElement("h2");
-      nameElement.textContent = photographer.name;
-      detailSection.appendChild(nameElement);
+  const nameElement = document.createElement("h2");
+  nameElement.textContent = photographer.name;
+  detailSection.appendChild(nameElement);
 
-      const locationElement = document.createElement("p");
-      locationElement.textContent = photographer.city + ', ' + photographer.country;
-      detailSection.appendChild(locationElement);
+  const locationElement = document.createElement("p");
+  locationElement.textContent = photographer.city + ", " + photographer.country;
+  detailSection.appendChild(locationElement);
 
-      const taglineElement = document.createElement("p");
-      taglineElement.textContent = photographer.tagline;
-      taglineElement.id = "tagline";
-      detailSection.appendChild(taglineElement);
+  const taglineElement = document.createElement("p");
+  taglineElement.textContent = photographer.tagline;
+  taglineElement.id = "tagline";
+  detailSection.appendChild(taglineElement);
 
-      const picture = "assets/photographers/" + photographer.portrait;
-      const imageElement = document.createElement("img");
-      imageElement.src = picture;
-      detailSection.appendChild(imageElement);
+  const picture = "assets/photographers/" + photographer.portrait;
+  const imageElement = document.createElement("img");
+  imageElement.src = picture;
+  detailSection.appendChild(imageElement);
 
-      const photographie = "assets/Photographie/" + photographer.image;
-      const photos = document.createElement("img");
-      photos.src = photographie;
-      detailSection.appendChild(photos);
+  const photosContainer = document.createElement("div");
+  photosContainer.classList.add("photographer_photos");
 
-    
+  //Images des photographes
+  let reponse = await fetch("../../data/photographers.json");
+  let data = await reponse.json();
+  const medias = data.media.filter(
+    (media) => media.photographerId === photographer.id
+  );
+
+  medias.forEach((media) => {
+    const mediaSource =
+      "assets/" + photographer.name + "/" + (media.image || media.video);
+
+    if (media.image) {
+      const photo = document.createElement("img");
+      photo.src = mediaSource;
+      photosContainer.appendChild(photo);
+      
+    } else if (media.video) {
+      const video = document.createElement("video");
+      video.src = mediaSource;
+      video.controls = true;
+      photosContainer.appendChild(video);
+    }
+  });
+
+  const mainSection = document.getElementById("main");
+  mainSection.appendChild(photosContainer);
 }
 
 function init() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const photographerId = parseInt (urlParams.get('id'));
+  const urlParams = new URLSearchParams(window.location.search);
+  const Idphotographer = parseInt(urlParams.get("id"));
 
-      if(photographerId) {
-            getPhotographerData(photographerId).then(displayPhotographerDetails)
-      }
+  if (Idphotographer) {
+    getPhotographerData(Idphotographer).then(displayPhotographerDetails);
+  }
 }
 
-document.addEventListener('DOMContentLoaded' , init)
+document.addEventListener("DOMContentLoaded", init);
