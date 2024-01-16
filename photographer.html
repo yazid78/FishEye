@@ -15,11 +15,33 @@
       <div class="photograph-header">
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
       </div>
-      <div class="fullsize">
-      <span class="closeButton">X</span>
-    
-    </div>
+    <!-- Carroussel -->
+<div class="modal_carroussel" id="myModal">
+  <span class="close" onclick="closeCarroussel()"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+    <g clip-path="url(#clip0_120_794)">
+      <path d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z" fill="#911C1C"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_120_794">
+        <rect width="72" height="72" fill="white"/>
+      </clipPath>
+    </defs>
+  </svg></span>
+  <div class="modal-content">
+    <img id="modalImage" />
+  </div>
+  <button class="prev" onclick="changePhoto(-1)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
+    <path d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z" fill="#911C1C"/>
+    </svg>
+  </button>
+  <button class="next" onclick="changePhoto(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
+    <path d="M0.360107 5.64L18.6801 24L0.360107 42.36L6.00011 48L29.9999 24L6.00011 -2.46532e-07L0.360107 5.64Z" fill="#911C1C"/>
+  </svg>
+  </button>
+</div>
     </main>
+     <!-- formulaire -->
     <div id="contact_modal">
       <div class="modal">
         <header>

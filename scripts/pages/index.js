@@ -1,10 +1,10 @@
 async function getPhotographers() {
-  const reponse = await fetch("../../data/photographers.json");
-  const photographer = await reponse.json();
-
-  return photographer;
-
+  const response = await fetch("../../data/photographers.json", { method: 'GET', mode: 'cors' }); 
+  const photographers = await response.json();
+  console.log(photographers);
+  return photographers;
 }
+
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
@@ -23,3 +23,4 @@ async function init() {
 }
 
 init();
+
