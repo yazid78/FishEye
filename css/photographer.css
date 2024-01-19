@@ -1,3 +1,10 @@
+main {
+  max-width: 1200px;
+  margin: auto;
+}
+header {
+  max-width: 1200px;
+}
 #contact_modal {
   display: none;
   position: fixed;
@@ -11,13 +18,6 @@
   justify-content: center;
   height: 100vh;
 }
-
-.photograph-header {
-  background-color: #fafafa;
-  height: 300px;
-  margin-bottom: 50px;
-}
-
 .contact_button {
   font-size: 20px;
   font-weight: bold;
@@ -85,8 +85,10 @@ form input {
   border: none;
   border-radius: 5px;
 }
-
 .photograph-header {
+  background-color: #fafafa;
+  height: 300px;
+  margin-bottom: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -144,15 +146,23 @@ form input {
   height: 300px;
   object-fit: cover;
 }
+.Informations {
+  display: flex;
 
-main {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 350px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
-header {
-  max-width: 1200px;
+#price {
+  margin-left: 80px;
+  margin-right: 20px;
 }
-
+#title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .photographer_photos .fullsize {
   border-radius: 10px;
   z-index: 999;
@@ -238,4 +248,19 @@ header {
 
 .close:hover {
   color: #ccc;
+}
+
+/* trier */
+.filter-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 280px;
+  position: relative;
+  bottom: 50px;
+  left: 5px;
+}
+#sortSelect {
+  margin-left: 20px;
+  height: 30px;
 }
