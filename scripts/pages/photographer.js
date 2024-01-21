@@ -33,7 +33,7 @@ async function displayPhotographerDetails(photographer) {
   const photosContainer = document.createElement("div");
   photosContainer.classList.add("photographer_photos");
 
-  let reponse = await fetch("../../data/photographers.json");
+  let reponse = await fetch("http://127.0.0.1:5500/data/photographers.json");
   let data = await reponse.json();
   const medias = data.media.filter(
     (media) => media.photographerId === photographer.id
