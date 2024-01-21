@@ -23,7 +23,7 @@
     article.appendChild(prix);
 
     article.addEventListener("click", () => {
-      window.location = `../photographer.html?id=${id}`;
+      window.location = `http://127.0.0.1:5500/photographer.html?id=${id}`;
     });
     return article;
   }
