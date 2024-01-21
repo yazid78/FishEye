@@ -1,5 +1,5 @@
 async function getPhotographerData(Idphotographer) {
-  let reponse = await fetch("http:127.0.0.1:5500/data/photographers.json", {
+  let reponse = await fetch("http://127.0.0.1:5500/data/photographers.json", {
     method: "GET",
     mode: "cors",
   });
@@ -172,7 +172,7 @@ sortSelect.addEventListener("change", () => {
   if (selectedValue === "Popularité") {
     const currentMedia = media.likes[0]; // Remplacez 0 par l'indice du média que vous souhaitez utiliser
     const medialike = currentMedia.likes;
-
+    
     console.log(currentMedia)
     console.log(medialike)
 
