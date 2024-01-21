@@ -1,15 +1,14 @@
-//Mettre le code JavaScript lié à la page photographer.html
 async function getPhotographerData(Idphotographer) {
-  let reponse = await fetch("../../data/photographers.json", {
+  let reponse = await fetch("http:127.0.0.1:5500/data/photographers.json", {
     method: "GET",
     mode: "cors",
   });
   let data = await reponse.json();
 
   const photographer = data.photographers.find((p) => p.id === Idphotographer);
-
   return photographer;
 }
+
 async function displayPhotographerDetails(photographer) {
   const detailSection = document.querySelector(".photograph-header");
 
@@ -34,7 +33,6 @@ async function displayPhotographerDetails(photographer) {
   const photosContainer = document.createElement("div");
   photosContainer.classList.add("photographer_photos");
 
-  //Images des photographes
   let reponse = await fetch("../../data/photographers.json");
   let data = await reponse.json();
   const medias = data.media.filter(
@@ -49,7 +47,7 @@ async function displayPhotographerDetails(photographer) {
       const mediaContainer = document.createElement("div");
       const InformationsContainer = document.createElement("div");
       InformationsContainer.classList.add("Informations");
-
+      mediaContainer.classList.add("Container")
       const photo = document.createElement("img");
       photo.src = mediaSource;
 
@@ -60,20 +58,19 @@ async function displayPhotographerDetails(photographer) {
       priceElement.textContent = media.price + "€";
       priceElement.id = "price";
 
+      //Likes
       const likesElement = document.createElement("h2");
-      likesElement.innerHTML = media.likes + '<i class="fas fa-heart"></i>';
-      let a = media.likes;
-      let rouge = likesElement.querySelector(".fas.fa-heart")
-      let b = rouge.style.color ='red'
-      console.log("ok ok");
-      const heartIcon = likesElement.querySelector(".fas.fa-heart");
-      console.log(heartIcon);
-      heartIcon.addEventListener("click", function () {
-       a++;
-      console.log(a);
-      likesElement.innerHTML = media.likes + b;
+      likesElement.setAttribute("data-likes", media.likes.toString());
+      likesElement.classList.add("like-button");
+
+      const heartIcon = document.createElement("i");
+      heartIcon.classList.add("fas", "fa-heart");
+      likesElement.appendChild(document.createTextNode(media.likes + " "));
+      likesElement.appendChild(heartIcon);
+
+      likesElement.addEventListener("click", () => {
+        like(likesElement);
       });
-      console.log(media.image);
 
       mediaContainer.appendChild(photo);
       InformationsContainer.appendChild(titleElement);
@@ -83,15 +80,42 @@ async function displayPhotographerDetails(photographer) {
       photosContainer.appendChild(mediaContainer);
       mediaContainer.appendChild(InformationsContainer);
 
-      // Ajoute un écouteur d'événements "click" à chaque image
       photo.addEventListener("click", function () {
-        openModal(index); // Appelle la fonction openModal avec l'index de l'image
+        openModal(index);
       });
+
     } else if (media.video) {
       const video = document.createElement("video");
       video.src = mediaSource;
       video.controls = true;
-      photosContainer.appendChild(video);
+
+      const titleElement = document.createElement("h2");
+      titleElement.textContent = media.title;
+      titleElement.id = "title";
+
+      const mediaContainer = document.createElement("div");
+      const InformationsContainer = document.createElement("div");
+      InformationsContainer.classList.add("Informations");
+      mediaContainer.classList.add("Container")
+
+      const likesElement = document.createElement("h2");
+      likesElement.setAttribute("data-likes", media.likes.toString());
+      likesElement.classList.add("like-button");
+
+      const heartIcon = document.createElement("i");
+      heartIcon.classList.add("fas", "fa-heart");
+      likesElement.appendChild(document.createTextNode(media.likes + " "));
+      likesElement.appendChild(heartIcon);
+      mediaContainer.appendChild(video);
+
+      likesElement.addEventListener("click", () => {
+        like(likesElement);
+      });
+      
+      InformationsContainer.appendChild(titleElement);
+      photosContainer.appendChild(mediaContainer);
+      InformationsContainer.appendChild(likesElement);
+      mediaContainer.appendChild(InformationsContainer);
     }
   });
 
@@ -104,7 +128,7 @@ let modalImages = [];
 
 function openModal(index) {
   currentPhotoIndex = index;
-  modalImages = document.querySelectorAll(".photographer_photos img");
+  modalImages = document.querySelectorAll(".Container");
   const modal = document.querySelector(".modal_carroussel");
   const modalImage = document.getElementById("modalImage");
   modalImage.src = modalImages[currentPhotoIndex].src;
@@ -146,6 +170,12 @@ sortSelect.addEventListener("change", () => {
   const selectedValue = sortSelect.value;
 
   if (selectedValue === "Popularité") {
+    const currentMedia = media.likes[0]; // Remplacez 0 par l'indice du média que vous souhaitez utiliser
+    const medialike = currentMedia.likes;
+
+    console.log(currentMedia)
+    console.log(medialike)
+
     console.log("Trier par popularité ici");
   } else if (selectedValue === "date") {
     console.log("Trier par date ici");
@@ -154,6 +184,8 @@ sortSelect.addEventListener("change", () => {
   }
 });
 
+
+//init 
 function init() {
   const urlParams = new URLSearchParams(window.location.search);
   const Idphotographer = parseInt(urlParams.get("id"));
@@ -161,6 +193,28 @@ function init() {
   if (Idphotographer) {
     getPhotographerData(Idphotographer).then(displayPhotographerDetails);
   }
+}
+
+
+//like function 
+function like(element) {
+  let likes = parseInt(element.getAttribute("data-likes"));
+  let isLiked = element.classList.contains("liked");
+  const heartIcon = element.querySelector(".fa-heart");
+  console.log(likes);
+  console.log(element);
+  if (isLiked) {
+    likes--;
+    heartIcon.style.color = "";
+    element.classList.remove("liked");
+  } else {
+    likes++;
+    heartIcon.style.color = "red";
+    element.classList.add("liked");
+  }
+
+  element.setAttribute("data-likes", likes.toString());
+  element.childNodes[0].nodeValue = likes + " "; 
 }
 
 document.addEventListener("DOMContentLoaded", init);

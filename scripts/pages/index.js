@@ -1,5 +1,5 @@
 async function getPhotographers() {
-  const response = await fetch("../../data/photographers.json", { method: 'GET', mode: 'cors' }); 
+  const response = await fetch("http:127.0.0.1:5500/data/photographers.json", { method: 'GET', mode: 'cors' }); 
   const photographers = await response.json();
   console.log(photographers);
   return photographers;
