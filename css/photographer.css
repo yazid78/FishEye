@@ -148,7 +148,7 @@ form input {
 }
 .Informations {
   display: flex;
-
+  justify-content: space-between;
   max-width: 350px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -183,6 +183,28 @@ form input {
 }
 
 /* Style pour le modal et le carrousel */
+input:valid {
+  border: 2px solid green;
+}
+input:invalid {
+  border: 2px solid gray;
+}
+
+form  #message:valid {
+  border: 2px solid green;
+}
+
+form #message:invalid {
+  border: 2px solid gray;
+}
+
+#message {
+  resize: none;
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  border: none;
+}
 .modal_carroussel {
   display: none;
   position: fixed;
@@ -199,13 +221,13 @@ form input {
   position: relative;
   margin: auto;
   display: block;
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
   padding-top: 20px;
 }
 
 .modal-content img {
-  width: 1050px;
+  width: 80%;
   height: 900px;
   flex-shrink: 0;
   display: block;
@@ -219,12 +241,13 @@ form input {
 .next {
   background: none;
   border: none;
-  font-size: 30px;
+  font-size: 3vw;
   font-weight: bold;
   color: white;
   cursor: pointer;
   position: absolute;
   top: 50%;
+  right: 5%;
   transform: translate(0, -50%);
 }
 
@@ -232,9 +255,9 @@ form input {
   color: red;
   cursor: pointer;
   position: absolute;
-  right: 300px;
-  top: 25px;
-  font-size: 30px;
+  right: 5%;
+  top: 10px;
+  font-size: 3vw;
   z-index: 2;
 }
 
@@ -250,7 +273,7 @@ form input {
   color: #ccc;
 }
 
-/* trier */
+/*** trier ***/
 .filter-container {
   margin: 0;
   padding: 0;
@@ -263,4 +286,32 @@ form input {
 #sortSelect {
   margin-left: 20px;
   height: 30px;
+}
+.like-button {
+}
+
+.total {
+  font-size: 24px;
+  position: fixed;
+  bottom: 0;
+  left: calc(60% + 10px);
+  width: 300px;
+  max-width: 90%;
+  background-color: #db8876;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 60px;
+  font-weight: bold;
+  align-items: center;
+}
+.total h2 {
+  font-size: 24px;
+  color: black;
+  width: 120px;
+  margin-left: 50px;
+}
+.total .fas.fa-heart {
+  margin-left: 5px;
 }
