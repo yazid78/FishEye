@@ -184,7 +184,6 @@ function openModal(index) {
   modal.style.display = "block";
 }
 
-
 function closeCarroussel() {
   const modal = document.querySelector(".modal_carroussel");
   modal.style.display = "none";
@@ -192,6 +191,7 @@ function closeCarroussel() {
 
 function changePhoto(offset) {
   currentPhotoIndex += offset;
+  console.log(offset)
   if (currentPhotoIndex < 0) {
     currentPhotoIndex = modalImages.length - 1;
   } else if (currentPhotoIndex >= modalImages.length) {
@@ -220,11 +220,13 @@ sortSelect.addEventListener("change", () => {
   const selectedValue = sortSelect.value;
 
   if (selectedValue === "Popularité") {
-    const currentMedia = media.likes[0]; // Remplacez 0 par l'indice du média que vous souhaitez utiliser
-    const medialike = currentMedia.likes;
+    
+    modalImages = Array.from(document.querySelectorAll(".Container img"));
+    console.log(modalImages);
 
-    console.log(currentMedia);
-    console.log(medialike);
+   modalImages.sort()
+   console.log(modalImages);
+
 
     console.log("Trier par popularité ici");
   } else if (selectedValue === "date") {
@@ -233,6 +235,9 @@ sortSelect.addEventListener("change", () => {
     console.log("Trier par titre ici");
   }
 });
+function sort (){
+  return
+}
 
 //init
 function init() {
