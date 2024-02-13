@@ -153,6 +153,7 @@ form input {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  color: #901c1c;
 }
 #price {
   margin-left: 80px;

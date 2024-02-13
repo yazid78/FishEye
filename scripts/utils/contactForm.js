@@ -17,6 +17,7 @@ myform.addEventListener('submit', (e) => {
  
  // Si le formulaire est valide, on ferme le modal
   closeModal();
+  
 });
 
 

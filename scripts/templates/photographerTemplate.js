@@ -1,4 +1,4 @@
-  function photographerTemplate(data) {
+function photographerTemplate(data) {
   const { name, portrait, id, tagline, city, country, price } = data;
 
   const picture = `assets/photographers/${portrait}`;
@@ -7,7 +7,7 @@
     const article = document.createElement("article");
     const img = document.createElement("img");
     img.setAttribute("src", picture);
-    
+
     const h2 = document.createElement("h2");
     h2.textContent = name;
     const h3 = document.createElement("h3");

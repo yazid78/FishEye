@@ -1,9 +1,4 @@
-async function getPhotographers() {
-  const response = await fetch("http://127.0.0.1:5500/data/photographers.json", { method: 'GET', mode: 'cors' }); 
-  const photographers = await response.json();
-  console.log(photographers);
-  return photographers;
-}
+const photographerService = new PhotographerService();
 
 
 async function displayData(photographers) {
@@ -18,7 +13,7 @@ async function displayData(photographers) {
 
 async function init() {
   // Récupère les datas des photographes
-  const { photographers } = await getPhotographers();
+  const { photographers } = await photographerService.getPhotographers();
   displayData(photographers);
 }
 

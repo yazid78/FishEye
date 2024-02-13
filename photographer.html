@@ -1,67 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
+    <meta charset="utf-8" />
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e82d23edf9.js" crossorigin="anonymous"></script>
-    <title>Fisheye - photographe </title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e82d23edf9.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
       </div>
-       <!-- filtre -->
-       <div class="filter-container">
+      <!-- filtre -->
+      <div class="filter-container">
         <label for="sortSelect">Trier par :</label>
         <select id="sortSelect">
-          <option value="Popularité"> Popularité</option>
+          <option value="Popularité">Popularité</option>
           <option value="date">Date</option>
           <option value="title">Titre</option>
         </select>
       </div>
-    <!-- Carroussel -->
-<div class="modal_carroussel" id="myModal">
-  <span class="close" onclick="closeCarroussel()"><svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
-    <g clip-path="url(#clip0_120_794)">
-      <path d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z" fill="#911C1C"/>
-    </g>
-    <defs>
-      <clipPath id="clip0_120_794">
-        <rect width="72" height="72" fill="white"/>
-      </clipPath>
-    </defs>
-  </svg></span>
-  <div class="modal-content">
-    <img id="modalImage" />
-  </div>
-  <button class="prev" onclick="changePhoto(-1)">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
-    <path d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z" fill="#911C1C"/>
-    </svg>
-  </button>
-  <button class="next" onclick="changePhoto(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
-    <path d="M0.360107 5.64L18.6801 24L0.360107 42.36L6.00011 48L29.9999 24L6.00011 -2.46532e-07L0.360107 5.64Z" fill="#911C1C"/>
-  </svg>
-  </button>
-</div>
+      <!-- Carroussel -->
+      <div class="modal_carroussel" id="myModal">
+        <span class="close" onclick="closeCarroussel()"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="72"
+            height="72"
+            viewBox="0 0 72 72"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_120_794)">
+              <path
+                d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z"
+                fill="#911C1C"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_120_794">
+                <rect width="72" height="72" fill="white" />
+              </clipPath>
+            </defs></svg
+        ></span>
+        <div class="modal-content">
+          <img id="modalImage" alt="Image modale" />
+        </div>
+        <button class="prev" onclick="changePhoto(-1)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="48"
+            viewBox="0 0 30 48"
+            fill="none"
+          >
+            <path
+              d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z"
+              fill="#911C1C"
+            />
+          </svg>
+        </button>
+        <button class="next" onclick="changePhoto(1)">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="48"
+            viewBox="0 0 30 48"
+            fill="none"
+          >
+            <path
+              d="M0.360107 5.64L18.6801 24L0.360107 42.36L6.00011 48L29.9999 24L6.00011 -2.46532e-07L0.360107 5.64Z"
+              fill="#911C1C"
+            />
+          </svg>
+        </button>
+      </div>
     </main>
-     <!-- formulaire -->
+    <!-- formulaire -->
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            onclick="closeModal()"
+            alt="Fermer"
+          />
         </header>
         <form method="post">
           <div>
             <label for="first">Prénom</label>
-            <input 
+            <input
               required="required"
               minlength="2"
               class="text_control"
@@ -69,7 +110,7 @@
               type="text"
               aria-label="Prénom"
             />
-        
+
             <label for="nom">Nom</label>
             <input
               required="required"
@@ -79,7 +120,7 @@
               type="text"
               aria-label="Nom"
             />
-        
+
             <label for="email">Adresse e-mail</label>
             <input
               required="required"
@@ -88,7 +129,7 @@
               id="email"
               aria-label="Adresse e-mail"
             />
-        
+
             <label for="message">Message</label>
             <textarea
               required="required"
@@ -98,8 +139,8 @@
               minlength="10"
             ></textarea>
           </div>
-        
-          <button 
+
+          <button
             class="contact_button"
             id="envoyer"
             type="submit"
@@ -108,11 +149,19 @@
             Envoyer
           </button>
         </form>
-        
       </div>
-    </div> 
-    <script src="/scripts/pages/photographer.js"></script>
+    </div>
+    <script src="models/Photographer.js"></script>
+    <script src="models/Media.js"></script>
+    <script src="models/Image.js"></script>
+    <script src="models/Video.js"></script>
+    <script src="factory/MediasFactory.js"></script>
+    <script src="models/PhotographerService.js"></script>
+    <script src="/scripts/pages/photographerPage.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    <script></script>
+    <script src="/scripts/templates/PhotographerHeader.js"></script>
+    <script src="/scripts/templates/PhotographerMedias.js"></script>
+    <script src="/scripts/utils/likes.js"></script>
+    <script src="/scripts/utils/Filtre.js"></script>
   </body>
 </html>
