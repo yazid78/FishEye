@@ -10,6 +10,7 @@ class PhotographerMedias {
   createPhotographerMedias() {
     const photosContainer = document.createElement("div");
     photosContainer.classList.add("photographer_photos");
+    photosContainer.id = "effacer";
    
     
 

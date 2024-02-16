@@ -29,7 +29,11 @@ class PhotographerService {
           medias.sort((a, b) => a.title.localeCompare(b.title));
           console.log(medias);
           break;
+        case "Date":
+          medias.sort((a, b) => b.date.localeCompare(a.date));
+          console.log(medias);
 
+          break;
         default:
           break;
       }
