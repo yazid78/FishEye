@@ -23,6 +23,7 @@ class PhotographerHeader {
     const picture = "assets/photographers/" + this.photographer.portrait;
     const imageElement = document.createElement("img");
     imageElement.src = picture;
+    imageElement.alt = this.photographer.name;
     detailSection.appendChild(imageElement);
   }
 }

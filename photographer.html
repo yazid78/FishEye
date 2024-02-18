@@ -1,168 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/e82d23edf9.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Fisheye - photographe</title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" />
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
-          Contactez-moi
-        </button>
-      </div>
-      <!-- filtre -->
-      <div class="filter-container">
-        <label for="sortSelect">Trier par :</label>
-        <select id="sortSelect">
-          <option value="Popularité">Popularité</option>
-          <option value="Date">Date</option>
-          <option value="Title">Titre</option>
-        </select>
-      </div>
-      <!-- Carroussel -->
-      <div class="modal_carroussel" id="myModal">
-        <span class="close" onclick="closeCarroussel()"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="72"
-            height="72"
-            viewBox="0 0 72 72"
-            fill="none"
-          >
-            <g clip-path="url(#clip0_120_794)">
-              <path
-                d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z"
-                fill="#911C1C"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_120_794">
-                <rect width="72" height="72" fill="white" />
-              </clipPath>
-            </defs></svg
-        ></span>
-        <div class="modal-content">
-          <img id="modalImage" alt="Image modale" />
-        </div>
-        <button class="prev" onclick="changePhoto(-1)">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="48"
-            viewBox="0 0 30 48"
-            fill="none"
-          >
-            <path
-              d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z"
-              fill="#911C1C"
-            />
-          </svg>
-        </button>
-        <button class="next" onclick="changePhoto(1)">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="48"
-            viewBox="0 0 30 48"
-            fill="none"
-          >
-            <path
-              d="M0.360107 5.64L18.6801 24L0.360107 42.36L6.00011 48L29.9999 24L6.00011 -2.46532e-07L0.360107 5.64Z"
-              fill="#911C1C"
-            />
-          </svg>
-        </button>
-      </div>
-    </main>
-    <!-- formulaire -->
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img
-            src="assets/icons/close.svg"
-            onclick="closeModal()"
-            alt="Fermer"
-          />
-        </header>
-        <form method="post">
-          <div>
-            <label for="first">Prénom</label>
-            <input
-              required="required"
-              minlength="2"
-              class="text_control"
-              id="first"
-              type="text"
-              aria-label="Prénom"
-            />
-
-            <label for="nom">Nom</label>
-            <input
-              required="required"
-              minlength="2"
-              class="text_control"
-              id="nom"
-              type="text"
-              aria-label="Nom"
-            />
-
-            <label for="email">Adresse e-mail</label>
-            <input
-              required="required"
-              type="email"
-              class="text_control"
-              id="email"
-              aria-label="Adresse e-mail"
-            />
-
-            <label for="message">Message</label>
-            <textarea
-              required="required"
-              class="text_control"
-              id="message"
-              aria-label="Message"
-              minlength="10"
-            ></textarea>
-          </div>
-
-          <button
-            class="contact_button"
-            id="envoyer"
-            type="submit"
-            aria-label="Envoyer le formulaire"
-          >
-            Envoyer
-          </button>
-        </form>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/e82d23edf9.js" crossorigin="anonymous"></script>
+  <title>Fisheye - photographe</title>
+</head>
+<body>
+  <header>
+    <a href="/index.html">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" aria-label="return to home page" />
+    </a>
+  </header>
+  <main id="main">
+    <section class="photograph-header">
+      <button class="contact_button" onclick="displayModal()"type="button" aria-label="Open contact form" >Contactez-moi</button>
+    </section>
+  <!-- filtre -->
+  <div class="filter-container">
+    <label for="sortSelect">Trier par :</label>
+    <div class="select-wrapper">
+      <select id="sortSelect">
+        <option class="opt" disabled selected value="">---</option>
+        <option class="opt" value="Popularité">Popularité</option>
+        <option class="opt" value="Date">Date</option>
+        <option class="opt" value="Title">Titre</option>
+      </select>
+      <span class="fas fa-chevron-up select-arrow"></span>
     </div>
-    <script src="models/Photographer.js"></script>
-    <script src="models/Media.js"></script>
-    <script src="models/Image.js"></script>
-    <script src="models/Video.js"></script>
-    <script src="factory/MediasFactory.js"></script>
-    <script src="models/PhotographerService.js"></script>
-    <script src="/scripts/pages/photographerPage.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/templates/PhotographerHeader.js"></script>
-    <script src="/scripts/templates/PhotographerMedias.js"></script>
-    <script src="/scripts/utils/likes.js"></script>
-    <script src="/scripts/utils/Filtre.js"></script>
-    <script src="/scripts/utils/Carroussel.js"></script>
-  </body>
+  </div>
+
+<!-- Carroussel -->
+<div class="modal_carroussel" id="myModal" role="dialog" aria-modal="true" aria-labelledby="carrousel_title" aria-describedby="carrousel_description">
+  <span class="close" onclick="closeCarroussel()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
+      <g clip-path="url(#clip0_120_794)">
+        <path d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z" fill="#911C1C" />
+      </g>
+      <defs>
+        <clipPath id="clip0_120_794">
+          <rect width="72" height="72" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  </span>
+  <div class="modal-content">
+    <img id="modalImage" src="#" alt="Carrousel modale" />
+  </div>
+  <button class="prev" onclick="changePhoto(-1)" aria-label="Image précédente">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
+      <path d="M29.6399 42.36L11.3199 24L29.6399 5.64L23.9999 -2.46532e-07L-0.000107861 24L23.9999 48L29.6399 42.36Z" fill="#911C1C" />
+    </svg>
+  </button>
+  <button class="next" onclick="changePhoto(1)" aria-label="Image suivante">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="48" viewBox="0 0 30 48" fill="none">
+      <path d="M0.360107 5.64L18.6801 24L0.360107 42.36L6.00011 48L29.9999 24L6.00011 -2.46532e-07L0.360107 5.64Z" fill="#911C1C" />
+    </svg>
+  </button>
+</div>
+
+  </main>
+  <div id="contact_modal" role="dialog" aria-modal="true" aria-describedby="modal_description">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" class="close" alt="Fermer" />
+      </header>
+      <!-- Formulaire -->
+      <form method="post" aria-labelledby="modal_form">
+        <div id="modal_description">
+          <p>Ce formulaire vous permet de me contacter. Merci de remplir tous les champs obligatoires.</p>
+        </div>
+        <div>
+          <label for="first">Prénom</label>
+          <input required minlength="2" class="text_control" id="first" type="text" aria-label="Prénom"/>
+          <label for="nom">Nom</label>
+          <input required minlength="2" class="text_control" id="nom" type="text" aria-label="Nom"/>
+          <label for="email">Adresse e-mail</label>
+          <input required type="email" class="text_control" id="email" aria-label="Adresse e-mail"/>
+          <label for="message">Message</label>
+          <textarea required class="text_control" id="message" aria-label="Message" minlength="10"></textarea>
+        </div>
+        <button class="contact_button" id="envoyer" type="submit" aria-label="Envoyer le formulaire">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  
+  </div>
+  <script src="models/Photographer.js"></script>
+  <script src="models/Media.js"></script>
+  <script src="models/Image.js"></script>
+  <script src="models/Video.js"></script>
+  <script src="factory/MediasFactory.js"></script>
+  <script src="models/PhotographerService.js"></script>
+  <script src="/scripts/pages/photographerPage.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/templates/PhotographerHeader.js"></script>
+  <script src="/scripts/templates/PhotographerMedias.js"></script>
+  <script src="/scripts/utils/likes.js"></script>
+  <script src="/scripts/utils/Filtre.js"></script>
+  <script src="/scripts/utils/Carroussel.js"></script>
+</body>
 </html>

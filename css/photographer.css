@@ -13,7 +13,6 @@ header {
   width: 100%;
   background: rgba(196, 196, 196, 0.4);
   background-size: cover;
-  display: none;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -29,6 +28,9 @@ header {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+}
+.contact_button:hover{
+  background-color: #d3573c;
 }
 
 .modal {
@@ -128,6 +130,11 @@ form input {
   font-size: 18px;
   font-weight: 400;
 }
+.media_container:hover{
+  transform: scale(1.05);
+  transition: all .2s ease-in-out;
+}
+
 .photographer_photos {
   max-width: 1200px;
   margin: auto;
@@ -191,7 +198,7 @@ input:invalid {
   border: 2px solid gray;
 }
 
-form  #message:valid {
+form #message:valid {
   border: 2px solid green;
 }
 
@@ -253,7 +260,6 @@ form #message:invalid {
 }
 
 .close {
-  color: red;
   cursor: pointer;
   position: absolute;
   right: 5%;
@@ -270,10 +276,6 @@ form #message:invalid {
   right: 200px;
 }
 
-.close:hover {
-  color: #ccc;
-}
-
 /*** trier ***/
 .filter-container {
   margin: 0;
@@ -283,14 +285,52 @@ form #message:invalid {
   position: relative;
   bottom: 50px;
   left: 5px;
+  align-items: center;
 }
+
+.select-wrapper {
+  position: relative;
+}
+
 #sortSelect {
   margin-left: 20px;
   height: 30px;
-}
-.like-button {
+  background-color: #901c1c;
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 8em;
+  height: 2.8em;
+  padding-right: 30px; 
+  appearance: none; /* Suppression de l'apparence par défaut du select */
+  -webkit-appearance: none; /* Suppression de l'apparence par défaut sur Safari */
+  -moz-appearance: none; /* Suppression de l'apparence par défaut sur Firefox */
 }
 
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px; 
+  transform: translateY(-50%) rotate(0deg); /* Pointe vers le haut par défaut */
+  color: white; /* Couleur de la flèche */
+}
+
+.select-arrow.down {
+  transform: translateY(-50%) rotate(180deg); /* Pointe vers le bas lorsque la classe "down" est ajoutée */
+}
+
+#sortSelect option:hover {
+  background-color: orange;
+  color: white;
+}
+
+
+
+/*****trier********/
 .total {
   font-size: 24px;
   position: fixed;
@@ -315,4 +355,5 @@ form #message:invalid {
 }
 .total .fas.fa-heart {
   margin-left: 5px;
+  margin-right: 30px;
 }

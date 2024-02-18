@@ -5,8 +5,10 @@ function photographerTemplate(data) {
 
   function getUserCardDOM() {
     const article = document.createElement("article");
+    const a = document.createElement("a");
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    img.setAttribute("alt", name);
 
     const h2 = document.createElement("h2");
     h2.textContent = name;
@@ -16,13 +18,16 @@ function photographerTemplate(data) {
     tag.textContent = tagline;
     const prix = document.createElement("p");
     prix.textContent = price + " " + "€";
-    article.appendChild(img);
-    article.appendChild(h2);
-    article.appendChild(h3);
-    article.appendChild(tag);
-    article.appendChild(prix);
+    a.appendChild(img);
+    a.appendChild(h2);
+    a.appendChild(h3);
+    a.appendChild(tag);
+    a.appendChild(prix);
+    a.setAttribute("aria-label", "Voir le profil de "+ name)
+   
+   article.appendChild(a)
 
-    article.addEventListener("click", () => {
+    a.addEventListener("click", () => {
       window.location = `http://127.0.0.1:5500/photographer.html?id=${id}`;
     });
     return article;

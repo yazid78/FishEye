@@ -8,12 +8,11 @@ class PhotographerMedias {
   }
 
   createPhotographerMedias() {
-    const photosContainer = document.createElement("div");
+    const photosContainer = document.createElement("section");
     photosContainer.classList.add("photographer_photos");
     photosContainer.id = "effacer";
    
     
-
     this.medias.forEach((media) => {
       const mediaContainer = document.createElement("div");
       mediaContainer.classList.add("media_container");
@@ -23,6 +22,7 @@ class PhotographerMedias {
       const mediaInstance = new MediasFactory(media);
       const element = mediaInstance instanceof Image ? "img" : "video";
       const mediaElement = document.createElement(element);
+      mediaElement.alt = media.alt
 
       mediaElement.src = `assets/${this.photographer.name}/${mediaInstance.image || mediaInstance.video}`;
       if (element === "video") {
@@ -69,26 +69,25 @@ class PhotographerMedias {
 
   createTotalLikesElement() {
     // Création de l'élément totalLikesElement
-    this.totalLikesElement = document.createElement("div");
+    this.totalLikesElement = document.createElement("aside");
     this.totalLikesElement.classList.add("total");
     this.totalLikesElement.setAttribute("data-total", this.totalLikes.toString());
-  
-    // Création du texte pour le total des likes
+    
+    // Création du texte pour le total des likes, y compris le prix
     const totalLikesText = document.createTextNode(this.totalLikes + " ");
-  
+    
     // Création de l'icône de cœur
     const heartTotal = document.createElement("i");
     heartTotal.classList.add("fas", "fa-heart");
   
     // Création du prix
-    const priceElement = document.createElement("h2");
-    priceElement.textContent = this.medias[0].price + "€ / jour"; // Supposons que le prix est le même pour tous les médias
+    const priceText = document.createTextNode(" " + this.medias[0].price + "€ / jour"); // Supposons que le prix est le même pour tous les médias
   
     // Ajout des éléments à totalLikesElement
     this.totalLikesElement.appendChild(totalLikesText);
     this.totalLikesElement.appendChild(heartTotal);
-    this.totalLikesElement.appendChild(priceElement);
-  
+    this.totalLikesElement.appendChild(priceText);
+    
     // Ajout de totalLikesElement à mainSection
     const mainSection = document.getElementById("main");
     mainSection.appendChild(this.totalLikesElement);
