@@ -3,7 +3,7 @@ class PhotographerHeader {
     this.photographer = photographer;
   }
 
-  createPhotographerHeader() {
+  createPhotographerHeader () {
     const detailSection = document.querySelector(".photograph-header");
 
     const nameElement = document.createElement("h2");
@@ -25,5 +25,9 @@ class PhotographerHeader {
     imageElement.src = picture;
     imageElement.alt = this.photographer.name;
     detailSection.appendChild(imageElement);
+    if (picture === "assets/photographers/MimiKeel.jpg") {
+      imageElement.id = "MimiKeel_id";
+    }
+
   }
 }

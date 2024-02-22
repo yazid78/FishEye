@@ -87,6 +87,7 @@ form input {
   border: none;
   border-radius: 5px;
 }
+/**Photographer Header**/
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
@@ -130,6 +131,12 @@ form input {
   font-size: 18px;
   font-weight: 400;
 }
+#MimiKeel_id{
+  position: relative;
+  top: -150px;
+  right: 1em;
+}
+/**Photographer Medias**/
 .media_container:hover{
   transform: scale(1.05);
   transition: all .2s ease-in-out;
@@ -184,11 +191,6 @@ form input {
   bottom: 100px;
 }
 
-.closeButton {
-  font-size: 50px;
-  cursor: pointer;
-  color: black;
-}
 
 /* Style pour le modal et le carrousel */
 input:valid {
@@ -244,6 +246,16 @@ form #message:invalid {
   object-fit: cover;
   border-radius: 10px;
 }
+.modal-content video {
+  width: 80%;
+  height: 900px;
+  flex-shrink: 0;
+  display: block;
+  margin-top: 100px;
+  margin: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
 .prev,
 .next {
@@ -255,26 +267,34 @@ form #message:invalid {
   cursor: pointer;
   position: absolute;
   top: 50%;
-  right: 5%;
   transform: translate(0, -50%);
 }
-
+.close_carroussel{
+  z-index: 2;
+  position: absolute;
+  left: 90%;
+  top: 2%;
+  cursor: pointer;
+  
+}
 .close {
   cursor: pointer;
   position: absolute;
-  right: 5%;
-  top: 10px;
+  right: 27%;
+  top: 8%;
   font-size: 3vw;
   z-index: 2;
 }
 
 .prev {
-  left: 200px;
+  left: calc(10% + 50px);
 }
 
 .next {
-  right: 200px;
+  right: calc(10% + 50px);
 }
+
+
 
 /*** trier ***/
 .filter-container {
@@ -309,6 +329,7 @@ form #message:invalid {
   appearance: none; /* Suppression de l'apparence par défaut du select */
   -webkit-appearance: none; /* Suppression de l'apparence par défaut sur Safari */
   -moz-appearance: none; /* Suppression de l'apparence par défaut sur Firefox */
+  cursor: pointer;
 }
 
 .select-arrow {
@@ -322,10 +343,13 @@ form #message:invalid {
 .select-arrow.down {
   transform: translateY(-50%) rotate(180deg); /* Pointe vers le bas lorsque la classe "down" est ajoutée */
 }
-
 #sortSelect option:hover {
-  background-color: orange;
-  color: white;
+  background-color: #d3573c;
+}
+
+option:hover {
+  cursor: pointer;
+  background-color:#d3573c;
 }
 
 

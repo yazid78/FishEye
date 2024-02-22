@@ -23,12 +23,18 @@ function photographerTemplate(data) {
     a.appendChild(h3);
     a.appendChild(tag);
     a.appendChild(prix);
-    a.setAttribute("aria-label", "Voir le profil de "+ name)
-   
-   article.appendChild(a)
+    a.setAttribute("aria-label", "Voir le profil de " + name);
+    a.setAttribute("tabindex", "0");
+
+    article.appendChild(a);
 
     a.addEventListener("click", () => {
       window.location = `http://127.0.0.1:5500/photographer.html?id=${id}`;
+    });
+    a.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        window.location = `http://127.0.0.1:5500/photographer.html?id=${id}`;
+      }
     });
     return article;
   }

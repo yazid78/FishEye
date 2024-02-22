@@ -12,15 +12,16 @@ class PhotographerService {
     const { photographers, media } = await this.getPhotographers();
     const photographer = photographers
       .map((photographer) => new Photographer(photographer))
-      .find((photographer) => photographer.id == idPhotographer);
+      .find((photographer) => photographer.id == idPhotographer); // eslint-disable-line eqeqeq
 
-    let medias = media
+    const medias = media
       .map((media) => new MediasFactory(media))
+      // eslint-disable-next-line eqeqeq
       .filter((media) => media.photographerId == idPhotographer);
-    if (sort != undefined) {
+    if (sort !== undefined) {
       switch (sort) {
         case "Popularité":
-          //medias =  medias.likes.sort()
+          //  medias =  medias.likes.sort()
           medias.sort((a, b) => b.likes - a.likes);
           console.log(medias);
           break;
