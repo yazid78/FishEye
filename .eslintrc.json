@@ -8,15 +8,15 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "quotes": "off",
-    "semi": "off",
-    "block-spacing": "off",
-    "brace-style": "off",
-    "eol-last": "off",
+    "quotes": "off",// Désactive la vérification du style des guillemets
+    "semi": "off",// Désactive la vérification de la présence des points-virgules
+    "block-spacing": "off", // Désactive la vérification de l'espacement autour des blocs de code
+    "brace-style": "off",// Désactive la vérification du style des accolades
+    "eol-last": "off", // Désactive la vérification de la présence d'une ligne vide à la fin du fichier
     "no-unused-vars": "off", // Ignorer les variables non utilisées
     "space-before-function-paren": "off", // Ignorer les espaces avant les parenthèses de fonction
     "indent": "off", // Ignorer les erreurs d'indentation
     "no-multiple-empty-lines": "off", // Ignorer les erreurs de lignes vides multiples
-    "no-undef": "off"
+    "no-undef": "off" // Désactive la vérification des variables non déclarées
   }
 }
