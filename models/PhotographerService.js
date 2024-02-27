@@ -1,9 +1,9 @@
 class PhotographerService {
   async getPhotographers() {
-    const response = await fetch(
-      "data/photographers.json",
-      { method: "GET", mode: "cors" }
-    );
+    const response = await fetch("data/photographers.json", {
+      method: "GET",
+      mode: "cors",
+    });
     const photographers = await response.json();
     return photographers;
   }
@@ -18,8 +18,8 @@ class PhotographerService {
       .map((media) => new MediasFactory(media))
       // eslint-disable-next-line eqeqeq
       .filter((media) => media.photographerId == idPhotographer);
-      
-      // Systeme de tri
+
+    // Systeme de tri
     if (sort !== undefined) {
       switch (sort) {
         case "Popularité":

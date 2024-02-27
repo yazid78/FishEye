@@ -16,14 +16,14 @@
   </header>
   <main id="main">
     <section class="photograph-header">
-      <button class="contact_button" onclick="displayModal()"type="button" aria-label="Open contact form" >Contactez-moi</button>
+      <button class="contact_button" onclick="displayModal() " type="button" aria-label="Open contact form" >Contactez-moi</button>
     </section>
     
   <!-- filtre -->
   <div class="filter-container">
     <label for="sortSelect">Trier par :</label>
     <div class="select-wrapper">
-      <select tabindex= "0"id="sortSelect">
+      <select tabindex= "0" id="sortSelect">
         <option class="option" tabindex= "0" disabled selected value="">---</option>
         <option class="option" tabindex= "0" value="Popularité">Popularité</option>
         <option class="option" tabindex= "0" value="Date">Date</option>
@@ -34,7 +34,7 @@
   </div>
 
 <!-- Carroussel -->
-<div class="modal_carroussel" id="myModal" aria-hidden=”true” role="dialog" aria-modal="true" aria-labelledby="carrousel_title" aria-describedby="carrousel_description" >
+<div class="modal_carroussel" id="myModal" aria-hidden="true" role="dialog" aria-modal="true">
   <span class="close_carroussel" onclick="closeCarroussel()">
     <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 72 72" fill="none">
       <g clip-path="url(#clip0_120_794)">
@@ -70,7 +70,7 @@
         <img src="assets/icons/close.svg" onclick="closeModal()" class="close" alt="Fermer" />
       </header>
       <!-- Formulaire -->
-      <form method="post" aria-labelledby="modal_form">
+      <form method="post" aria-label="modal_form">
         <div id="modal_description">
           <p>Ce formulaire vous permet de me contacter. Merci de remplir tous les champs obligatoires.</p>
         </div>
@@ -87,8 +87,6 @@
         <button class="contact_button" type="submit" aria-label="Envoyer le formulaire">Envoyer</button>
       </form>
     </div>
-  </div>
-  
   </div>
   <script src="models/Photographer.js"></script>
   <script src="models/Media.js"></script>

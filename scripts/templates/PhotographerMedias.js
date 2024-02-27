@@ -52,7 +52,7 @@ class PhotographerMedias {
       likesElement.appendChild(heartIcon);
 
       likesElement.addEventListener("click", () => {
-        this.toggleLike(likesElement); // Appel de la méthode pour ajouter ou supprimer un like
+        this.toggleLike(likesElement);
       });
       likesElement.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -90,11 +90,8 @@ class PhotographerMedias {
     // Création du texte pour le total des likes, y compris le prix
     const totalLikesText = document.createTextNode(this.totalLikes + " ");
 
-    // Création de l'icône de cœur
     const heartTotal = document.createElement("i");
     heartTotal.classList.add("fas", "fa-heart");
-
-    // Création du prix
     const priceText = document.createTextNode(
       " " + this.medias[0].price + "€ / jour"
     );
