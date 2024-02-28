@@ -29,7 +29,7 @@ header {
   border-radius: 5px;
   cursor: pointer;
 }
-.contact_button:hover{
+.contact_button:hover {
   background-color: #d3573c;
 }
 
@@ -131,15 +131,15 @@ form input {
   font-size: 18px;
   font-weight: 400;
 }
-#MimiKeel_id{
+#MimiKeel_id {
   position: relative;
   top: -150px;
   right: 1em;
 }
 /**Photographer Medias**/
-.media_container:hover{
+.media_container:hover {
   transform: scale(1.05);
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .photographer_photos {
@@ -190,7 +190,6 @@ form input {
   top: 250px;
   bottom: 100px;
 }
-
 
 /* Style pour le modal et le carrousel */
 input:valid {
@@ -256,7 +255,16 @@ form #message:invalid {
   object-fit: cover;
   border-radius: 10px;
 }
-
+.modal-content h2 {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 50px;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  justify-content: left;
+  margin-left: 10%;
+  color: #901c1c;
+}
 .prev,
 .next {
   background: none;
@@ -269,13 +277,12 @@ form #message:invalid {
   top: 50%;
   transform: translate(0, -50%);
 }
-.close_carroussel{
+.close_carroussel {
   z-index: 2;
   position: absolute;
   left: 90%;
   top: 2%;
   cursor: pointer;
-  
 }
 .close {
   cursor: pointer;
@@ -293,8 +300,6 @@ form #message:invalid {
 .next {
   right: calc(4% + 50px);
 }
-
-
 
 /*** trier ***/
 .filter-container {
@@ -325,7 +330,7 @@ form #message:invalid {
   border: none;
   width: 8em;
   height: 2.8em;
-  padding-right: 30px; 
+  padding-right: 30px;
   appearance: none; /* Suppression de l'apparence par défaut du select */
   -webkit-appearance: none; /* Suppression de l'apparence par défaut sur Safari */
   -moz-appearance: none; /* Suppression de l'apparence par défaut sur Firefox */
@@ -335,7 +340,7 @@ form #message:invalid {
 .select-arrow {
   position: absolute;
   top: 50%;
-  right: 10px; 
+  right: 10px;
   transform: translateY(-50%) rotate(0deg); /* Pointe vers le haut par défaut */
   color: white; /* Couleur de la flèche */
 }
@@ -349,7 +354,7 @@ form #message:invalid {
 
 option:hover {
   cursor: pointer;
-  background-color:#d3573c;
+  background-color: #d3573c;
 }
 
 /*****trier********/

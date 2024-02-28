@@ -11,7 +11,6 @@ function attachCarrouselEventListeners() {
         openModal(index);
       }
     });
-    // Ajout d'un attribut tabindex pour permettre à l'élément d'être focus
     image.setAttribute("tabindex", "0");
   });
 }
@@ -76,6 +75,21 @@ function openModal(index) {
   }
 
   modalContent.appendChild(mediaElement);
+
+  const infoElement = selectedMedia.nextElementSibling;
+  console.log(infoElement);
+
+  const titleElement = infoElement.querySelector("h2");
+
+  if (titleElement) {
+    const titleText = titleElement.textContent;
+
+    const newTitleElement = document.createElement("h2");
+    newTitleElement.textContent = titleText;
+
+    modalContent.appendChild(newTitleElement);
+  }
+
   modal.style.display = "block";
 }
 
@@ -126,6 +140,19 @@ function changePhoto(offset) {
   }
 
   modalContent.appendChild(mediaElement);
+
+  const infoElement = selectedMedia.nextElementSibling;
+
+  const titleElement = infoElement.querySelector("h2");
+
+  if (titleElement) {
+    const titleText = titleElement.textContent;
+
+    const newTitleElement = document.createElement("h2");
+    newTitleElement.textContent = titleText;
+
+    modalContent.appendChild(newTitleElement);
+  }
 }
 
 document.addEventListener("keydown", function (event) {
