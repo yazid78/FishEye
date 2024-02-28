@@ -1,5 +1,7 @@
 function attachCarrouselEventListeners() {
-  const carrousselImages = document.querySelectorAll(".media_container img, .media_container video");
+  const carrousselImages = document.querySelectorAll(
+    ".media_container img, .media_container video"
+  );
   carrousselImages.forEach((image, index) => {
     image.addEventListener("click", function () {
       openModal(index);
@@ -14,23 +16,36 @@ function attachCarrouselEventListeners() {
   });
 }
 
-photographerService.getInfoPhotographer(idPhotographer).then(() => {
-  attachCarrouselEventListeners();
-})
-.catch((error) => {
-  console.error("Une erreur s'est produite:", error);
+const prevButton = document.querySelector(".prev");
+prevButton.addEventListener("click", () => {
+  changePhoto(-1);
 });
+const nextButton = document.querySelector(".next");
+nextButton.addEventListener("click", () => {
+  changePhoto(1);
+});
+
+photographerService
+  .getInfoPhotographer(idPhotographer)
+  .then(() => {
+    attachCarrouselEventListeners();
+  })
+  .catch((error) => {
+    console.error("Une erreur s'est produite:", error);
+  });
 
 let currentPhotoIndex = 0;
 let modalImages = [];
 
-function openModal (index) {
+function openModal(index) {
   currentPhotoIndex = index;
-  modalImages = Array.from(document.querySelectorAll(".media_container img, .media_container video"));
+  modalImages = Array.from(
+    document.querySelectorAll(".media_container img, .media_container video")
+  );
   const modal = document.querySelector(".modal_carroussel");
   const modalContent = document.querySelector(".modal-content");
 
-  modalContent.innerHTML = '';
+  modalContent.innerHTML = "";
 
   const selectedMedia = modalImages[currentPhotoIndex];
   let mediaElement;
@@ -41,10 +56,13 @@ function openModal (index) {
     mediaElement.alt = selectedMedia.alt;
   } else if (selectedMedia.tagName === "VIDEO") {
     mediaElement = document.createElement("video");
-    mediaElement.setAttribute("aria-label", "Woman doing aerial tricks suspended by one arm");
+    mediaElement.setAttribute(
+      "aria-label",
+      "Woman doing aerial tricks suspended by one arm"
+    );
     const sources = selectedMedia.querySelectorAll("source");
     if (sources.length > 0) {
-      sources.forEach(source => {
+      sources.forEach((source) => {
         const newSource = document.createElement("source");
         newSource.src = source.src;
         newSource.type = source.type;
@@ -61,12 +79,14 @@ function openModal (index) {
   modal.style.display = "block";
 }
 
-function closeCarroussel () {
+function closeCarroussel() {
   const modal = document.querySelector(".modal_carroussel");
   modal.style.display = "none";
 }
+const croixCarroussel = document.querySelector(".close_carroussel");
+croixCarroussel.addEventListener("click", closeCarroussel);
 
-function changePhoto (offset) {
+function changePhoto(offset) {
   currentPhotoIndex += offset;
   if (currentPhotoIndex < 0) {
     currentPhotoIndex = modalImages.length - 1;
@@ -75,7 +95,7 @@ function changePhoto (offset) {
   }
 
   const modalContent = document.querySelector(".modal-content");
-  modalContent.innerHTML = '';
+  modalContent.innerHTML = "";
 
   const selectedMedia = modalImages[currentPhotoIndex];
   let mediaElement;
@@ -86,10 +106,13 @@ function changePhoto (offset) {
     mediaElement.alt = selectedMedia.alt;
   } else if (selectedMedia.tagName === "VIDEO") {
     mediaElement = document.createElement("video");
-    mediaElement.setAttribute("aria-label", "Woman doing aerial tricks suspended by one arm");
+    mediaElement.setAttribute(
+      "aria-label",
+      "Woman doing aerial tricks suspended by one arm"
+    );
     const sources = selectedMedia.querySelectorAll("source");
     if (sources.length > 0) {
-      sources.forEach(source => {
+      sources.forEach((source) => {
         const newSource = document.createElement("source");
         newSource.src = source.src;
         newSource.type = source.type;

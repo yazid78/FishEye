@@ -2,7 +2,7 @@ class PhotographerService {
   async getPhotographers() {
     const response = await fetch("data/photographers.json", {
       method: "GET",
-      mode: "cors",
+      mode: "cors" // Pas de virgule ici
     });
     const photographers = await response.json();
     return photographers;

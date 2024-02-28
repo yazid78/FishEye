@@ -1,12 +1,16 @@
-function displayModal () {
+function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
 }
+const openForm = document.querySelector(".contact_button");
+openForm.addEventListener("click", displayModal);
 
-function closeModal () {
+function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
 }
+const close = document.querySelector(".close");
+close.addEventListener("click", closeModal);
 
 const myform = document.querySelector("form");
 
@@ -28,4 +32,6 @@ const message = document.getElementById("message");
 
 document.addEventListener("keydown", function (event) {
   if (event.key === " " || event.key === "Escape") {
-    closeModal();}});
+    closeModal();
+  }
+});
