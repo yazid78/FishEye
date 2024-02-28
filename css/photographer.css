@@ -287,11 +287,11 @@ form #message:invalid {
 }
 
 .prev {
-  left: calc(10% + 50px);
+  left: calc(4% + 50px);
 }
 
 .next {
-  right: calc(10% + 50px);
+  right: calc(4% + 50px);
 }
 
 
