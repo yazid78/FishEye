@@ -237,7 +237,7 @@ form #message:invalid {
 
 .modal-content img {
   width: 80%;
-  height: 900px;
+  height: 820px;
   flex-shrink: 0;
   display: block;
   margin-top: 100px;
@@ -247,7 +247,7 @@ form #message:invalid {
 }
 .modal-content video {
   width: 80%;
-  height: 900px;
+  height: 820px;
   flex-shrink: 0;
   display: block;
   margin-top: 100px;
