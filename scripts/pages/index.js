@@ -2,7 +2,7 @@ const photographerService = new PhotographerService();
 
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
-
+ 
   photographers.forEach((photographer) => {
     const photographerModel = photographerTemplate(photographer);
     const userCardDOM = photographerModel.getUserCardDOM();
@@ -13,7 +13,7 @@ async function displayData(photographers) {
 async function init() {
   // Récupère les datas des photographes
   const { photographers } = await photographerService.getPhotographers();
-  displayData(photographers);
+  displayData(photographers); 
 }
 
 init();

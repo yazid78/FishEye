@@ -13,7 +13,7 @@ class PhotographerService {
     const photographer = photographers
       .map((photographer) => new Photographer(photographer))
       .find((photographer) => photographer.id == idPhotographer); // eslint-disable-line eqeqeq
-
+      
     const medias = media
       .map((media) => new MediasFactory(media))
       // eslint-disable-next-line eqeqeq
