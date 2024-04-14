@@ -29,11 +29,11 @@ function photographerTemplate(data) {
     article.appendChild(a);
 
     a.addEventListener("click", () => {
-      window.location = `../photographer.html?id=${id}`;
+      window.location = `./photographer.html?id=${id}`;
     });
     a.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        window.location = `../photographer.html?id=${id}`;
+        window.location = `./photographer.html?id=${id}`;
       }
     });
     return article;
