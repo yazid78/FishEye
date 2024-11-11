@@ -2,9 +2,7 @@ main {
   max-width: 1200px;
   margin: auto;
 }
-header {
-  max-width: 1200px;
-}
+
 #contact_modal {
   display: none;
   position: fixed;
